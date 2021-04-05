@@ -1,0 +1,17 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=LAPTOP-MF0RB2RN\\NIRANJAN;initial catalog=AdventureWorks2012",
+			"userName": "LAPTOP-MF0RB2RN\\Lenovo",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0OGUxNTNmMy0xZWRmLTRjZDEtYjE3Ni05MDJiY2EwZWU2ZWUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
