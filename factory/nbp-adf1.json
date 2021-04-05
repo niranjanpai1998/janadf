@@ -1,0 +1,9 @@
+{
+	"name": "nbp-adf1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1b0e023c-22be-4554-885a-ac4443da40dc",
+		"tenantId": "fa580163-8101-479c-8e41-1016a261f011"
+	}
+}
