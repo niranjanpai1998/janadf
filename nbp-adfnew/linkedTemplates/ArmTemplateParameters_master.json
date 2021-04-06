@@ -14,6 +14,9 @@
 		"AzureSampleSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"AzureSqlTrialDatabase_connectionString": {
+			"value": ""
+		},
 		"SqlServer1_connectionString": {
 			"value": ""
 		},

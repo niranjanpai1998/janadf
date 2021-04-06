@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSampleSqlDatabase1'"
 		},
+		"AzureSqlTrialDatabase_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlTrialDatabase'"
+		},
 		"SqlServer1_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SqlServer1'"
@@ -66,6 +70,9 @@
 					},
 					"AzureSampleSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSampleSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlTrialDatabase_connectionString": {
+						"value": "[parameters('AzureSqlTrialDatabase_connectionString')]"
 					},
 					"SqlServer1_connectionString": {
 						"value": "[parameters('SqlServer1_connectionString')]"
