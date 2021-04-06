@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqSampleTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSampleSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "Customer"
+		}
+	}
+}
