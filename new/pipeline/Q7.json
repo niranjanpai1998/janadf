@@ -1,5 +1,5 @@
 {
-	"name": "Q4Server",
+	"name": "Q7",
 	"properties": {
 		"activities": [
 			{
@@ -16,16 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "SqlServerSource",
-						"sqlReaderQuery": "select name from sys.tables where name like '%Sales%'",
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select distinct month (ModifiedDate) as m , year (ModifiedDate ) as y , day (ModifiedDate) as d, ModifiedDate as dt from SalesLT.SalesOrderDetail ",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SqlServerTable2",
+						"referenceName": "AzureSqlTableSample7",
 						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
+					}
 				}
 			},
 			{
@@ -61,13 +60,21 @@
 							"userProperties": [],
 							"typeProperties": {
 								"source": {
-									"type": "SqlServerSource",
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": "select * from SalesLT.SalesOrderDetail where  modifieddate = '@{item().dt}'",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "AzureSqlSink",
-									"tableOption": "autoCreate"
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
 								},
 								"enableStaging": false,
 								"translator": {
@@ -81,23 +88,25 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTableCpyForEach",
-									"type": "DatasetReference",
-									"parameters": {
-										"TableName": {
-											"value": "@item().name",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "AzureSqlTableSample7",
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "AzureSqlTable1",
+									"referenceName": "DelimitedTextQ7Sink",
 									"type": "DatasetReference",
 									"parameters": {
-										"TableName": {
-											"value": "@item().name",
+										"year": {
+											"value": "@item().y",
+											"type": "Expression"
+										},
+										"month": {
+											"value": "@item().m",
+											"type": "Expression"
+										},
+										"day": {
+											"value": "@item().d",
 											"type": "Expression"
 										}
 									}
@@ -108,8 +117,6 @@
 				}
 			}
 		],
-		"annotations": [],
-		"lastPublishTime": "2021-04-05T12:40:22Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }
