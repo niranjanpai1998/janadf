@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqSampleTable",
+						"referenceName": "ConditionSource",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
