@@ -24,7 +24,8 @@
 					"dataset": {
 						"referenceName": "AzureSqlTableSample7",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -61,7 +62,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "select * from SalesLT.SalesOrderDetail where  modifieddate = '@{item().dt}'",
+									"sqlReaderQuery": {
+										"value": "select * from SalesLT.SalesOrderDetail where  modifieddate = '@{item().dt}'",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},

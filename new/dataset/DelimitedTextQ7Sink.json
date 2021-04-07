@@ -21,8 +21,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@dataset().dy",
-				"folderPath": "@concat(dataset().year,' ',dataset().month)",
+				"fileName": {
+					"value": "@dataset().day",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat(dataset().year,' ',dataset().month)",
+					"type": "Expression"
+				},
 				"container": "q7output"
 			},
 			"columnDelimiter": ",",
